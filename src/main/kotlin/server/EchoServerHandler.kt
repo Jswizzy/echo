@@ -1,3 +1,5 @@
+package server
+
 import io.netty.buffer.ByteBuf
 import io.netty.buffer.Unpooled
 import io.netty.channel.ChannelFutureListener
@@ -12,7 +14,7 @@ class EchoServerHandler : ChannelInboundHandlerAdapter() {
     override fun channelRead(ctx: ChannelHandlerContext, msg: Any) {
         val `in` = msg as ByteBuf
         println(
-                "Server received: " + `in`.toString(CharsetUtil.UTF_8))
+                "server received: " + `in`.toString(CharsetUtil.UTF_8))
         ctx.write(`in`)
     }
 
